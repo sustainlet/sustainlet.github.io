@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMO Portfolio Risk Check — £95 | SustainLet</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal:        #085041;
+    --teal-mid:    #0F6E56;
+    --teal-light:  #E1F5EE;
+    --teal-pale:   #F0FAF6;
+    --amber:       #854F0B;
+    --amber-light: #FAEEDA;
+    --red:         #A32D2D;
+    --red-light:   #FCEBEB;
+    --green:       #3B6D11;
+    --green-light: #EAF3DE;
+    --dark:        #1A1A1A;
+    --muted:       #555;
+    --border:      #D8D8D8;
+    --white:       #FFFFFF;
+  }
+
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #F7F7F5;
+    color: var(--dark);
+    line-height: 1.7;
+    font-size: 17px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--teal);
+    padding: 14px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .brand { color: #9FE1CB; font-size: 15px; font-weight: bold; letter-spacing: 0.1em; font-family: Arial, sans-serif; }
+  nav .sub   { color: #5DCAA5; font-size: 11px; font-family: Arial, sans-serif; letter-spacing: 0.06em; }
+
+  /* HERO */
+  .hero {
+    background: var(--teal);
+    padding: 64px 5% 56px;
+    text-align: center;
+    border-bottom: 4px solid #5DCAA5;
+  }
+  .hero .eyebrow {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5DCAA5;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .subtitle {
+    font-size: 18px;
+    color: #9FE1CB;
+    max-width: 560px;
+    margin: 0 auto 36px;
+    font-style: italic;
+  }
+  .hero .cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .btn-primary {
+    display: inline-block;
+    background: #FFFFFF;
+    color: var(--teal);
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 16px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: var(--teal-light); }
+  .hero .url-note {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #5DCAA5;
+  }
+
+  /* URGENCY BANNER */
+  .urgency {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber);
+    padding: 16px 5%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--amber);
+    text-align: center;
+  }
+  .urgency strong { color: #633806; }
+
+  /* MAIN CONTENT */
+  .container { max-width: 760px; margin: 0 auto; padding: 0 5%; }
+
+  section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 26px;
+    color: var(--teal);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 16px; color: var(--muted); }
+  p strong { color: var(--dark); }
+
+  /* ANCHOR PRICING BOX */
+  .anchor-box {
+    background: var(--teal-pale);
+    border: 1px solid #A0D4C0;
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+  .anchor-box .anchor-title {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .anchor-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #C5E8DC;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  .anchor-row:last-child { border-bottom: none; }
+  .anchor-row .item { color: var(--dark); }
+  .anchor-row .cost { color: var(--red); font-weight: bold; }
+  .anchor-row.highlight { background: var(--teal-light); margin: 0 -28px; padding: 12px 28px; border-radius: 4px; }
+  .anchor-row.highlight .item { color: var(--teal); font-weight: bold; }
+  .anchor-row.highlight .cost { color: var(--teal); font-size: 18px; }
+
+  /* WHAT YOU GET */
+  .checklist { list-style: none; margin: 20px 0; }
+  .checklist li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    font-size: 16px;
+    color: var(--dark);
+  }
+  .checklist li .tick {
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .checklist li .tick::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 10px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+  }
+
+  /* SAMPLE REPORT PREVIEW */
+  .report-preview {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 28px 0;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+  }
+  .rp-header {
+    background: var(--teal);
+    padding: 10px 16px;
+    color: #9FE1CB;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .rp-row {
+    display: grid;
+    grid-template-columns: 1fr 110px 90px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #EBEBEB;
+    align-items: center;
+  }
+  .rp-row:last-child { border-bottom: none; }
+  .rp-row.alt { background: #FAFAFA; }
+  .rp-cert { font-weight: bold; color: var(--dark); }
+  .rp-date { color: var(--muted); font-size: 12px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .b-valid    { background: var(--green-light); color: var(--green); }
+  .b-expiring { background: var(--amber-light); color: var(--amber); }
+  .b-expired  { background: var(--red-light);   color: var(--red);   }
+
+  /* PROCESS */
+  .steps { margin: 24px 0; }
+  .step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body h3 { font-size: 17px; color: var(--dark); margin-bottom: 4px; }
+  .step-body p  { font-size: 15px; margin-bottom: 0; }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: #F7F7F5;
+    border-top: 1px solid var(--border);
+    padding: 20px 5%;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--teal);
+    padding: 56px 5%;
+    text-align: center;
+  }
+  .cta-section h2 { color: white; font-size: 28px; margin-bottom: 12px; }
+  .cta-section p  { color: #9FE1CB; margin-bottom: 28px; font-size: 16px; }
+  .cta-section .price-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    padding: 10px 24px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-bottom: 24px;
+  }
+  .cta-section .cta-sub {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #5DCAA5;
+    margin-top: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #032E25;
+    padding: 28px 5%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #5DCAA5;
+  }
+  footer a { color: #9FE1CB; }
+
+  @media (max-width: 540px) {
+    .rp-row { grid-template-columns: 1fr 80px; }
+    .rp-date { display: none; }
+    .anchor-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <div class="brand">SUSTAINLET</div>
+    <div class="sub">PORTFOLIO GOVERNANCE · CROYDON</div>
+  </div>
+</nav>
+
+<div class="hero">
+  <p class="eyebrow">For Croydon HMO landlords</p>
+  <h1>Is your portfolio compliant before your next HMO licence renewal?</h1>
+  <p class="subtitle">A fixed-fee documentary review that tells you exactly what is valid, what is expiring, and what needs immediate attention.</p>
+  <div class="cta-wrap">
+    <a href="https://bit.ly/HMOcheck" class="btn-primary">Book your Portfolio Risk Check — £95</a>
+    <span class="url-note">bit.ly/HMOcheck · Secure card payment · 24-hour delivery</span>
+  </div>
+</div>
+
+<div class="urgency">
+  <strong>Renters' Rights Act comes into force 1 May 2026.</strong> Licence renewals require fully current documentation. Missing or outdated certificates are the most common cause of delays and penalties.
+</div>
+
+<div class="container">
+
+  <section>
+    <h2>Why landlords pay for this</h2>
+    <p>Having your certificates is not the same as knowing they are all valid, correctly dated, and properly organised for a council inspection. Many landlords find at renewal stage that something has quietly lapsed — an EICR that expired at a change of tenancy, a gas certificate covering the wrong appliances, or an EPC rating that is no longer compliant.</p>
+    <p><strong>One missing document can delay your licence renewal, trigger a Civil Penalty Notice of up to £30,000, or result in a Rent Repayment Order from your tenants.</strong></p>
+
+    <div class="anchor-box">
+      <div class="anchor-title">What these things cost if you get it wrong</div>
+      <div class="anchor-row">
+        <span class="item">New EICR inspection</span>
+        <span class="cost">£200 – £390</span>
+      </div>
+      <div class="anchor-row">
+        <span class="item">Gas Safety certificate renewal</span>
+        <span class="cost">£80 – £120</span>
+      </div>
+      <div class="anchor-row">
+        <span class="item">Civil Penalty Notice (unlicensed HMO)</span>
+        <span class="cost">Up to £30,000</span>
+      </div>
+      <div class="anchor-row highlight">
+        <span class="item">Portfolio Risk Check — find out what you actually need first</span>
+        <span class="cost">£95</span>
+      </div>
+    </div>
+
+    <p>For £95 I check your existing documentation across up to three properties and tell you exactly what needs attention and what does not — before you spend anything on new inspections or face a council deadline.</p>
+  </section>
+
+  <section>
+    <h2>What you receive</h2>
+    <ul class="checklist">
+      <li><span class="tick"></span>A review of your EICR, Gas Safety certificate (CP12), EPC, and HMO licence for up to three properties</li>
+      <li><span class="tick"></span>A clear one-page report showing the status of each certificate — valid, expiring within six months, or expired and requiring action</li>
+      <li><span class="tick"></span>A priority action list: what to fix first and by when</li>
+      <li><span class="tick"></span>Delivered within 24 hours of receiving your documents</li>
+      <li><span class="tick"></span>Written in plain English — no jargon</li>
+    </ul>
+
+    <div class="report-preview">
+      <div class="rp-header">Sample report output — illustrative</div>
+      <div class="rp-row">
+        <span class="rp-cert">EICR</span>
+        <span class="rp-date">Exp. 14/03/2028</span>
+        <span class="badge b-valid">VALID</span>
+      </div>
+      <div class="rp-row alt">
+        <span class="rp-cert">Gas Safety (CP12)</span>
+        <span class="rp-date">Exp. 30/06/2026</span>
+        <span class="badge b-expiring">EXPIRING</span>
+      </div>
+      <div class="rp-row">
+        <span class="rp-cert">EPC</span>
+        <span class="rp-date">Exp. 15/01/2026</span>
+        <span class="badge b-expired">EXPIRED</span>
+      </div>
+      <div class="rp-row alt">
+        <span class="rp-cert">HMO Licence</span>
+        <span class="rp-date">Exp. 27/04/2026</span>
+        <span class="badge b-expiring">EXPIRING</span>
+      </div>
+    </div>
+
+    <p style="font-size:14px; color:#999; font-family: Arial, sans-serif;">This is not a legal service. It is a practical administrative review — the equivalent of having someone lay out all your receipts and check the dates before your accountant files.</p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Pay online</h3>
+          <p>Secure card payment of £95 via Stripe. You will receive an immediate confirmation email.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Send your documents</h3>
+          <p>I will contact you by email within a few hours to arrange document collection. You send your certificates — EICR, Gas Safety, EPC, and any HMO licence paperwork — by email or file share.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Receive your report</h3>
+          <p>Within 24 hours you receive a one-page PDF showing the status of each certificate and a clear priority action list. If everything is in order, you will have the confidence to proceed with your renewal. If something has been missed, you will know about it before the council does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>About SustainLet</h2>
+    <p>SustainLet is a portfolio governance and compliance service for professional landlords in Croydon and the surrounding boroughs. Founded by <strong>Sheldon St. Clair FRSA</strong>, a Governance and Risk professional and Croydon portfolio landlord, SustainLet is built on direct knowledge of what councils look for and where portfolios most commonly fall short.</p>
+    <p>This service is for landlords who take compliance seriously and want certainty before a council deadline — not for those who are happy to take their chances.</p>
+  </section>
+
+</div>
+
+<div class="cta-section">
+  <h2>Ready to know where you stand?</h2>
+  <p>Fixed fee. One-page report. Delivered within 24 hours.</p>
+  <div class="price-badge">£95 for up to 3 properties</div><br>
+  <a href="https://bit.ly/HMOcheck" class="btn-primary">Pay now and book your check</a>
+  <p class="cta-sub">bit.ly/HMOcheck · Secure card payment powered by Stripe</p>
+</div>
+
+<div class="disclaimer">
+  <p>This service is a documentary review only. It is based solely on the documents provided by the client and does not constitute a legal opinion, survey, or professional inspection. SustainLet is not a law firm and does not provide legal advice. If you do not wish to receive further communications from SustainLet, reply to any letter or email with the word STOP.</p>
+</div>
+
+<footer>
+  SustainLet &nbsp;·&nbsp; Sheldon St. Clair FRSA &nbsp;·&nbsp; Croydon &nbsp;·&nbsp;
+  <a href="https://bit.ly/HMOcheck">bit.ly/HMOcheck</a>
+</footer>
+
+</body>
+</html>
